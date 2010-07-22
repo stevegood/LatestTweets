@@ -1,0 +1,48 @@
+<!--
+	Copyright 2009 Steve Good / Slantsoft
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+	   http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<plugin>
+<name>Twitter Updates Display</name>
+<!-- the package value becomes a part of the directory name where the plugin is installed. -->
+<package>LatestTweets</package>
+<version>1.2.6.1</version>
+<provider>Slantsoft</provider>
+<providerURL>http://slantsoft.com</providerURL>
+<category>Tag</category>
+<settings>
+	<setting>
+		<name>isEnabled</name>
+		<label>Enable Latest Tweets Plugin</label>
+		<hint>Enable plugin.</hint>
+		<type>selectbox</type>
+		<required>true</required>
+		<validation></validation>
+		<regex></regex>
+		<message></message>
+		<defaultvalue>yes</defaultvalue>
+		<optionlist>yes^no</optionlist>
+		<optionlabellist>Yes^No</optionlabellist>
+	</setting>
+</settings>
+
+<eventHandlers>
+	<eventHandler event="onApplicationLoad" component="eventHandlers.InjectStatus" persist="true"/>
+	<eventHandler event="onSiteRequestStart" component="eventHandlers.InjectStatus" persist="true"/>
+	<eventHandler event="onRenderStart" component="eventHandlers.InjectStatus" persist="true"/>
+</eventHandlers>
+
+<displayobjects location="global">
+</displayobjects>
+</plugin>
